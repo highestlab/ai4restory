@@ -76,7 +76,7 @@ try:
 
     # Carica il file Excel
 
-    df_meta = pd.read_excel(r"C:\Users\mcaligar\Desktop\ai4restory\elenco_file_bucket.xlsx")
+    df_meta = pd.read_excel(r"C:\Users\mcaligar\Desktop\Codice\Elenco_corretto.xlsx")
 
     # Text splitter
     text_splitter = RecursiveCharacterTextSplitter(
@@ -90,7 +90,7 @@ try:
 
     for _, row in df_meta.iterrows():
         file_name = row['Source_title']
-        tag = row['Tag fittizio']
+        tag = row['Tag_completo']
         object_name = row['Path']
 
         try:
