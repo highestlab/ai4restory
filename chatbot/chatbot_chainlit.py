@@ -20,7 +20,7 @@ os.environ["CHAINLIT_AUTH_SECRET"] = os.getenv("CHAINLIT_AUTH_SECRET")
 
 # === LLM ===
 llm = ChatOCIGenAI(
-    model_id="ocid1.generativeaimodel.oc1.eu-frankfurt-1.amaaaaaask7dceyatobkuq6yg3lqeqhawaj3i7pckwaoeyf2liwnzvgtp6ba",
+    model_id="ocid1.generativeaimodel.oc1.eu-frankfurt-1.amaaaaaask7dceya4tdabclcsqbc3yj2mozvvqoq5ccmliv3354hfu3mx6bq",
     provider="meta",
     service_endpoint="https://inference.generativeai.eu-frankfurt-1.oci.oraclecloud.com",
     compartment_id="ocid1.compartment.oc1..aaaaaaaaobswoagzkkotnusnm7arq4faj7zwmhvjer4uy2jy7apszec3ky7q",
@@ -80,7 +80,7 @@ async def on_chat_start():
 @cl.on_message
 async def on_message(message: cl.Message):
     chain = cl.user_session.get("qa_chain")
-    response = chain(message.content)
+    response = chain.invoke(message.content)
 
     answer = response["result"]
     sources = response.get("source_documents", [])
